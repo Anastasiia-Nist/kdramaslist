@@ -1,0 +1,12 @@
+.profile__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+
+  .profile__input {
+    border: 2px solid #f8bbd0;
+    border-radius: 10px;
+    padding: 10px;
+  }
+}

@@ -1,0 +1,15 @@
+.carousel {
+  width: 80%;
+  &-item {
+    max-height: 387px;
+  }
+  &-img {
+    aspect-ratio: 16 / 9;
+    background-size: contain;
+  }
+}
+@media screen and (max-width: 900px) {
+    .carousel {
+        width: 100%;
+    }
+}

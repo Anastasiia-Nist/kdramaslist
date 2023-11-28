@@ -1,0 +1,18 @@
+.card {
+  height: 100%;
+  &-title {
+    min-height: 50px;
+  }
+  &-text {
+    min-height: 50px;
+  }
+}
+
+.btn.btn-primary {
+  background-color: #f8bbd0;
+  border: none;
+  --bs-btn-active-bg: #a75270;
+  &:hover {
+    background-color: #f48fb1;
+  }
+}

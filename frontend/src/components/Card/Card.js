@@ -27,6 +27,7 @@ export default function KDramaCard({ card }) {
         <Card.Text>{card.description}</Card.Text>
       </Card.Body>
       <ListGroup className="list-group-flush">
+      <ListGroup.Item>{card.country}</ListGroup.Item>
         <ListGroup.Item>{card.year}</ListGroup.Item>
         <ListGroup.Item>{card.duration}</ListGroup.Item>
       </ListGroup>

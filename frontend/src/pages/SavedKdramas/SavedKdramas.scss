@@ -1,0 +1,11 @@
+.dramas-saved {
+    display: flex;
+    flex-direction: column;
+    &_btn {
+        align-self: center;
+        padding: 24px;
+        button {
+            width: 300px;
+        }
+    }
+}

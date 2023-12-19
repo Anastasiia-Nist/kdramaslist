@@ -1,10 +1,9 @@
 import DramasList from '../../components/DramasList/DramasList';
 
-function Kdramas(topDramas) {
-  const arr = topDramas.topDramas;
+function Kdramas({ topDramas, loading }) {
   return (
-    <main className='dramas-top'>
-      <DramasList cards={arr}/>
+    <main className="dramas-top">
+      {loading ? <p>... Loading</p> : <DramasList cards={topDramas} />}
     </main>
   );
 }

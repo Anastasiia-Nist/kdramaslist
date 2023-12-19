@@ -16,7 +16,7 @@ class MainApi {
   //
   _request(endpoint, options) {
     return fetch(`${this._baseUrl}/${endpoint}`, options).then(
-      this._checkResult,
+      this._checkResult
     );
   }
 
@@ -43,16 +43,22 @@ class MainApi {
       },
     });
   }
-  addDrama(data) {
+  addDrama({ userId, name, img, country, year, description, duration }) {
+    console.log({ userId, name, img, country, year, description, duration })
     return this._request('dramas/', {
-      method: "POST",
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         // Authorization: `Bearer ${localStorage.getItem('jwt')}`,
       },
       body: JSON.stringify({
-        userId: 1, // добавить id юзера
-        data,
+        userId: userId || 1,
+        name,
+        img,
+        country,
+        year,
+        description,
+        duration,
       }),
     });
   }

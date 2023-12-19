@@ -21,16 +21,19 @@ import {
 
 function App() {
   const [topDramas, setTopDramas] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   function getTopDramas() {
+    setIsLoading(true);
     mainApi
       .getTopDramas()
       .then((data) => {
-        setTopDramas(data);
+        setTopDramas([...data]);
       })
       .catch((err) => {
         console.log(err);
-      });
+      })
+      .finally(() => setIsLoading(false));
   }
 
   useEffect(() => {
@@ -47,7 +50,7 @@ function App() {
         <Route path={ENDPOINT_PROFILE} element={<Profile />} />
         <Route
           path={ENDPOINT_KDRAMAS}
-          element={<Kdramas topDramas={topDramas} />}
+          element={<Kdramas topDramas={topDramas} loading={isLoading}/>}
         />
         <Route path={ENDPOINT_SAVED_KDRAMAS} element={<SavedKdramas />} />
       </Routes>

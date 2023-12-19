@@ -8,7 +8,7 @@ function parser() {
   (async () => {
     const browser = await puppeteer.launch({ headless: 'new' });
     const page = await browser.newPage();
-    for (let i = 1; i <= 82; i++) {
+    for (let i = 1; i <= 84; i++) {
       await page.goto(`https://doramy.club/top/page/${i}`);
       const result = await page.evaluate(() => {
         const data = [];
@@ -18,7 +18,9 @@ function parser() {
           const name = element.childNodes[1].innerText;
           const img = element.querySelector('img').src;
           const info = element.querySelector('table').querySelectorAll('u');
-          const year = info[0].innerText;
+          const yearcountry = info[0].innerText;
+          const year = yearcountry.replace(/[^0-9]/g, '');
+          const country = yearcountry.replace(/[^a-zа-яё\s]/gi, '');
           const description = info[1].innerText;
           let duration = '';
           const durationT = document.querySelector(
@@ -27,15 +29,22 @@ function parser() {
           if (durationT === null) duration = 'Фильм';
           else duration = durationT.innerText.replace(/\n/g, ' ');
           data.push({
-            name, img, year, description, duration,
+            name,
+            img,
+            country,
+            year,
+            description,
+            duration,
           });
         }
         return Promise.all(data);
       });
 
-      result.forEach((el) => {
-        const q = 'INSERT INTO `topdramas` (`data`) VALUES (?)';
-        db.query(q, [JSON.stringify(el)], (err) => {
+      result.forEach(({
+        name, img, country, year, description, duration,
+      }) => {
+        const q = `INSERT INTO topdramas (name, img, country, year, description, duration) VALUES ( '${name}' , '${img}' , '${country}' , '${year}' ,' ${description}' , '${duration}' )`;
+        db.query(q, (err) => {
           if (err) console.log(err);
         });
       });

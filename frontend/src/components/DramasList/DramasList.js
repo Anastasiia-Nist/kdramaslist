@@ -10,10 +10,9 @@ function DramasList({ cards }) {
     <Container>
       <Row>
       {cards.map((card, i) => {
-          const data = JSON.parse(card.data);
           if (i < 12) return (
             <Col key={i}>
-              <KDramaCard card={data}/>
+              <KDramaCard card={card}/>
             </Col>
           );
           return false;

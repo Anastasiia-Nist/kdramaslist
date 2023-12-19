@@ -17,9 +17,9 @@ const getSavedMovies = (req, res) => {
 };
 
 const addMovie = (req, res) => {
-  const { userId, data } = req.body;
-  const q = 'INSERT INTO `saveddramas`VALUES (?, ?)';
-  db.query(q, [userId, [JSON.stringify(data)]], (err, result) => {
+  const { userId, name, img, country, year, description, duration } = req.body;
+  const q = `INSERT INTO saveddramas (userId, name, img, country, year, description, duration ) VALUES ( ${userId}, '${name}' , '${img}' , '${country}' , '${year}' ,' ${description}' , '${duration}' )`;
+  db.query(q, (err, result) => {
     if (err) return res.status(400).json(err);
     return res.status(201).send(result);
   });

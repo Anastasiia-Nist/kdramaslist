@@ -1,0 +1,25 @@
+.card {
+  height: 100%;
+  &-title {
+    min-height: 50px;
+  }
+  &-text {
+    min-height: 50px;
+  }
+  img {
+    aspect-ratio: 340/470;
+  }
+}
+
+.btn.btn-primary {
+  background-color: #f8bbd0;
+  border: none;
+  --bs-btn-active-bg: #a75270;
+  &:hover {
+    background-color: #f48fb1;
+  }
+}
+.btn.btn-primary:disabled {
+  background-color: #f3eef0;
+  color:#3b1d28
+}

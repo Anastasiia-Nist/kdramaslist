@@ -1,4 +1,5 @@
 @import '../../../node_modules/bootstrap/dist/css/bootstrap.css';
+@import './form.scss';
 
 *,
 *::before,
@@ -35,7 +36,6 @@ img {
 }
 
 .page {
-  max-width: 1280px;
   height: 100vh;
   margin: 0 auto;
   font-family: 'Roboto', Arial, sans-serif;
@@ -47,6 +47,8 @@ img {
   text-rendering: optimizeLegibility;
 }
 main {
+  max-width: 1280px;
+  align-self: center;
   flex: 1 1 auto;
   padding-top: 20px;
 }

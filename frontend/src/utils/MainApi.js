@@ -31,28 +31,27 @@ class MainApi {
     return this._request('dramas/top', {
       headers: {
         'Content-Type': 'application/json',
-        // Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
       },
     });
   }
-  getSavedDramas() {
-    return this._request('dramas/saved', {
+  getSavedDramas(id) {
+    return this._request(`dramas/saved/${id}`, {
       headers: {
         'Content-Type': 'application/json',
-        // Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
       },
     });
   }
-  addDrama({ userId, name, img, country, year, description, duration }) {
-    console.log({ userId, name, img, country, year, description, duration })
+  addDrama({ id, name, img='', country='', year='', description='', duration='' }) {
     return this._request('dramas/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        // Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
       },
       body: JSON.stringify({
-        userId: userId || 1,
+        userId: id,
         name,
         img,
         country,

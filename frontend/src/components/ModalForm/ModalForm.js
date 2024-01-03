@@ -33,6 +33,7 @@ function ModalForm({ show, title, buttonText, onSubmit, onClose }) {
                 autoFocus
                 value={values.name || ''}
                 onChange={handleChange}
+                required
               />
             </Form.Group>
             <Form.Group className="mb-3">

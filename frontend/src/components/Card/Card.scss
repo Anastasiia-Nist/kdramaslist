@@ -6,6 +6,9 @@
   &-text {
     min-height: 50px;
   }
+  img {
+    aspect-ratio: 340/470;
+  }
 }
 
 .btn.btn-primary {
@@ -15,4 +18,8 @@
   &:hover {
     background-color: #f48fb1;
   }
+}
+.btn.btn-primary:disabled {
+  background-color: #f3eef0;
+  color:#3b1d28
 }

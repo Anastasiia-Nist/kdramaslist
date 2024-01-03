@@ -75,6 +75,7 @@ function App() {
   function handleLogout() {
     localStorage.removeItem('jwt');
     localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('savedDramas');
     localStorage.removeItem('user');
     navigate(ENDPOINT_ROOT);
   }

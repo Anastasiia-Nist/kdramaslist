@@ -26,7 +26,7 @@ function parser() {
           const durationT = document.querySelector(
             'body > div > div.middle > main > article > section:nth-child(3) > table.table-hom > tbody > tr > td',
           );
-          if (durationT === null) duration = 'Фильм';
+          if (durationT === null) duration = '---';
           else duration = durationT.innerText.replace(/\n/g, ' ');
           data.push({
             name,

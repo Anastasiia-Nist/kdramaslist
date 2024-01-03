@@ -1,12 +1,14 @@
-.profile__container {
+.profile {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 25px;
-
-  .profile__input {
-    border: 2px solid #f8bbd0;
-    border-radius: 10px;
-    padding: 10px;
+  width: 60%;
+  &__container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    padding: 30px 0;
   }
 }

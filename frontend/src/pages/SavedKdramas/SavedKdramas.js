@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from 'react';
+import { useState, useContext } from 'react';
 import DramasList from '../../components/DramasList/DramasList';
 import ModalForm from '../../components/ModalForm/ModalForm';
 import mainApi from '../../utils/MainApi';

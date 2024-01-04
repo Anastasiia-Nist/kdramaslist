@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   padding: 30px 100px;
+
   .home {
     min-height: 400px;
     display: flex;
@@ -20,7 +21,20 @@
       display: flex;
       flex-direction: column;
       gap: 10px;
-      font-size: 16px;
+      font-size: 18px;
+    }
+    &__declaration {
+      display: flex;
+      flex-direction: column;
+      font-size: 20px;
+    }
+    &__remark {
+      color: #a75270;
+    }
+    p a {
+      cursor: pointer;
+      color: #a75270;
+      text-decoration: none;
     }
   }
 }

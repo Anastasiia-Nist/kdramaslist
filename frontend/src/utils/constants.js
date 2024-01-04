@@ -1,5 +1,5 @@
 // URL
-export const URL_BASE = 'http://localhost:3088/api';
+export const URL_BASE = 'https://a.nistratova14.fvds.ru/api';
 
 // ENDPOINTS
 export const ENDPOINT_ROOT = '/';

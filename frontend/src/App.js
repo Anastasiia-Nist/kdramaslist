@@ -141,7 +141,13 @@ function App() {
           />
           <Route
             path={ENDPOINT_PROFILE}
-            element={<Profile onLogout={handleLogout} />}
+            element={
+              <ProtectedRouteElement
+                element={Profile}
+                onLogout={handleLogout}
+                loggedIn={isLoggedIn}
+              />
+            }
           />
           <Route
             path={ENDPOINT_KDRAMAS}

@@ -1,0 +1,13 @@
+.pagination-wrapper {
+    padding: 20px 30px;
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    .page-link{
+        border-radius: 6px;
+    }
+}

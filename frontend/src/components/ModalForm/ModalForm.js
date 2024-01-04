@@ -2,9 +2,10 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import { useFormAndValidation } from '../../hooks/useFormAndValidation';
+import './ModalForm.scss'
 
 function ModalForm({ show, title, buttonText, onSubmit, onClose }) {
-  const { values, handleChange, resetForm } = useFormAndValidation({});
+  const { values, handleChange, resetForm, isValid } = useFormAndValidation({});
   function handleSubmit() {
     onSubmit({
       name: values.name,
@@ -25,7 +26,7 @@ function ModalForm({ show, title, buttonText, onSubmit, onClose }) {
         <Modal.Body>
           <Form>
             <Form.Group className="mb-3">
-              <Form.Label>Название дорамы</Form.Label>
+              <Form.Label><span className='label__required'>* </span>Название дорамы</Form.Label>
               <Form.Control
                 name="name"
                 type="text"
@@ -47,23 +48,25 @@ function ModalForm({ show, title, buttonText, onSubmit, onClose }) {
               />
             </Form.Group>
             <Form.Group className="mb-3">
-              <Form.Label>Страна</Form.Label>
+              <Form.Label><span className='label__required'>* </span>Страна</Form.Label>
               <Form.Control
                 name="country"
                 type="text"
                 placeholder="Южная Корея"
                 value={values.country || ''}
                 onChange={handleChange}
+                required
               />
             </Form.Group>
             <Form.Group className="mb-3">
-              <Form.Label>Год</Form.Label>
+              <Form.Label><span className='label__required'>* </span>Год</Form.Label>
               <Form.Control
                 name="year"
                 type="text"
                 placeholder="2023"
                 value={values.year || ''}
                 onChange={handleChange}
+                required
               />
             </Form.Group>
             <Form.Group className="mb-3">
@@ -77,19 +80,20 @@ function ModalForm({ show, title, buttonText, onSubmit, onClose }) {
               />
             </Form.Group>
             <Form.Group className="mb-3">
-              <Form.Label>Продолжительность</Form.Label>
+              <Form.Label><span className='label__required'>* </span>Продолжительность</Form.Label>
               <Form.Control
                 name="duration"
                 type="text"
                 placeholder="Сериал: 16 серий"
                 value={values.duration || ''}
                 onChange={handleChange}
+                required
               />
             </Form.Group>
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={handleSubmit}>
+          <Button variant="primary" onClick={handleSubmit} disabled={!isValid && true}>
             {buttonText}
           </Button>
         </Modal.Footer>

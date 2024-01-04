@@ -145,6 +145,7 @@ function App() {
               <ProtectedRouteElement
                 element={Profile}
                 onLogout={handleLogout}
+                loggedIn={isLoggedIn}
               />
             }
           />

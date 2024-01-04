@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useState } from 'react';
+import useResize from '../../hooks/useResize';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -8,8 +9,9 @@ import './DramasList.scss';
 import DramasPagination from '../Pagination/Pagination';
 
 function DramasList({ cards }) {
+  const width = useResize();
   const [currentPage, setCurrentPage] = useState(1);
-  const [dramasPerPage] = useState(12);
+  const [dramasPerPage] = useState(width < 760 ? 6 : 12);
   const indexOfLastDramas = currentPage * dramasPerPage;
   const indexOfFirstDramas = indexOfLastDramas - dramasPerPage;
   const currentDramas = cards.slice(indexOfFirstDramas, indexOfLastDramas);
@@ -17,7 +19,6 @@ function DramasList({ cards }) {
   function handleChangePage(pageNumber) {
     setCurrentPage(pageNumber);
   }
-
 
   return (
     <>
@@ -27,16 +28,21 @@ function DramasList({ cards }) {
         ) : (
           <Row>
             {currentDramas.map((card, i) => {
-                return (
-                  <Col key={i}>
-                    <KDramaCard card={card} />
-                  </Col>
-                );
+              return (
+                <Col key={i}>
+                  <KDramaCard card={card} />
+                </Col>
+              );
             })}
           </Row>
         )}
       </Container>
-      <DramasPagination dramasPerPage={dramasPerPage} totalDramas={cards.length} onChangePage={handleChangePage}></DramasPagination>
+      <DramasPagination
+        dramasPerPage={dramasPerPage}
+        totalDramas={cards.length}
+        onChangePage={handleChangePage}
+        currentPage={currentPage}
+      ></DramasPagination>
     </>
   );
 }

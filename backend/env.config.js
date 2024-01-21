@@ -4,7 +4,7 @@ dotenv.config();
 
 const {
   SERVER_PORT = 3088,
-  SECRET_KEY = 'some-secret-key',
+  SECRET_KEY = 'JBsjS37s8&LJJB#Ls',
   NODE_ENV = 'development',
 } = process.env;
 

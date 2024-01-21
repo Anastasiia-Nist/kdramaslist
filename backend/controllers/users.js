@@ -1,6 +1,7 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const db = require('../db');
+const { SECRET_KEY } = require('../env.config');
 
 const createUser = (req, res) => {
   const { name, email, password } = req.body;
@@ -39,7 +40,7 @@ const login = (req, res) => {
     if (!isPasswordCorrect) {
       return res.status(401).json('Неверный email или пароль');
     }
-    const token = jwt.sign({ id: data[0].id }, 'somesecretkey', {
+    const token = jwt.sign({ id: data[0].id }, SECRET_KEY, {
       expiresIn: '7d',
     });
     res.send({
